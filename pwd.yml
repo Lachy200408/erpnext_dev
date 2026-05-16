@@ -1,3 +1,5 @@
+name: erpnext_dev
+
 services:
   backend:
     image: frappe/erpnext:v15.107.0
@@ -9,9 +11,6 @@ services:
     volumes:
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
-      - ./sites:/home/frappe/frappe-bench/sites:bind
-      - ./logs:/home/frappe/frappe-bench/logs:bind
-      - ./apps:/home/frappe/frappe-bench/apps:bind
     environment:
       DB_HOST: db
       DB_PORT: "3306"
