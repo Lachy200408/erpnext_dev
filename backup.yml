@@ -1,0 +1,19 @@
+services:
+  backup:
+    image: frappe/erpnext:v15.107.0
+    entrypoint:
+      - bash -c
+    command:
+      - >
+        /home/frappe/volumes/copy_files.sh;
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - logs:/home/frappe/frappe-bench/logs
+      - db-data:/var/lib/mysql
+      - ./volumes:/home/frappe/volumes:ro
+
+volumes:
+  db-data:
+  redis-queue-data:
+  sites:
+  logs:

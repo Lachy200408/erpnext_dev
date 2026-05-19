@@ -1,4 +1,4 @@
-name: erpnext_dev
+#name: erpnext_dev
 
 services:
   backend:
