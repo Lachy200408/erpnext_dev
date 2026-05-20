@@ -10,6 +10,7 @@ services:
         condition: on-failure
     volumes:
       - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
       - logs:/home/frappe/frappe-bench/logs
     environment:
       DB_HOST: db
@@ -44,6 +45,7 @@ services:
       SOCKETIO_PORT: "9000"
     volumes:
       - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
       - logs:/home/frappe/frappe-bench/logs
 
   create-site:
@@ -55,6 +57,7 @@ services:
     #     condition: none
     volumes:
       - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
       - logs:/home/frappe/frappe-bench/logs
     entrypoint:
       - bash
@@ -124,6 +127,7 @@ services:
       CLIENT_MAX_BODY_SIZE: 50m
     volumes:
       - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
       - logs:/home/frappe/frappe-bench/logs
     ports:
       - "8080:8080"
@@ -142,6 +146,7 @@ services:
       - long,default,short
     volumes:
       - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
       - logs:/home/frappe/frappe-bench/logs
     environment:
       FRAPPE_REDIS_CACHE: redis://redis-cache:6379
@@ -161,6 +166,7 @@ services:
       - short,default
     volumes:
       - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
       - logs:/home/frappe/frappe-bench/logs
     environment:
       FRAPPE_REDIS_CACHE: redis://redis-cache:6379
@@ -195,6 +201,7 @@ services:
       - bench
       - schedule
     volumes:
+      - apps:/home/frappe/frappe-bench/apps
       - sites:/home/frappe/frappe-bench/sites
       - logs:/home/frappe/frappe-bench/logs
 
@@ -213,11 +220,13 @@ services:
       FRAPPE_REDIS_QUEUE: redis://redis-queue:6379
     volumes:
       - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
       - logs:/home/frappe/frappe-bench/logs
 
 volumes:
   db-data:
   redis-queue-data:
+  apps:
   sites:
   logs:
 
