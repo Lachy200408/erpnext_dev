@@ -1,0 +1,12 @@
+- [ ] Hacer portal
+	- [ ] Crear dashboard de incidencias
+	- [ ] Hacer paginas para dashboard de "mi cuenta"
+	- [ ] Registro de usuarios externos del portal
+	- [ ] Vista por roles de jefes de clientes
+  - [ ] Pagina de inicio del portal
+	- [ ] Ampliar y automatizar el formulario de reporte
+- [ ] Creacion de servicios de soporte
+- [ ] Añadir contrato a los servicios
+- [ ] Hacer sitio web
+	- [ ] Seccion de inicio y contacto
+	- [ ] Seccion de servicios y calculo de oferta
