@@ -26,7 +26,8 @@ function from_host_to_container {
 			cd /home/frappe/extracted
 
 			pmsg "Extracting sites.tar volume..."
-			tar -xf ./sites.tar ./sites || xend "Couldnt extract sites volume"
+			mkdir sites
+			tar -xf ./sites.tar -C ./sites || xend "Couldnt extract sites volume"
 
 			pmsg "Copying sites files..."
 			cp -rf ./sites /home/frappe/frappe-bench/ || xend "Couldnt copy sites files"
@@ -37,7 +38,8 @@ function from_host_to_container {
 			cd /home/frappe/extracted
 
 			pmsg "Extracting apps.tar volume..."
-			tar -xf ./apps.tar ./apps || xend "Couldnt extract apps volume"
+			mkdir apps
+			tar -xf ./apps.tar -C ./apps || xend "Couldnt extract apps volume"
 
 			pmsg "Copying apps files..."
 			cp -rf ./apps /home/frappe/frappe-bench/ || xend "Couldnt copy apps files"
