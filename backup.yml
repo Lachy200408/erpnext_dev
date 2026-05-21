@@ -13,6 +13,8 @@ services:
       - logs:/home/frappe/frappe-bench/logs
       - apps:/home/frappe/frappe-bench/apps
       - ./volumes:/home/frappe/volumes:ro
+    networks:
+      - frappe_network
 
   backup:
     image: frappe/erpnext:v15.107.0
@@ -28,9 +30,15 @@ services:
       - logs:/home/frappe/frappe-bench/logs
       - apps:/home/frappe/frappe-bench/apps
       - ./volumes:/home/frappe/volumes:rw
+    networks:
+      - frappe_network
 
 volumes:
   db-data:
   apps:
   sites:
   logs:
+
+networks:
+  frappe_network:
+    driver: bridge

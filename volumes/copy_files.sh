@@ -1,21 +1,6 @@
 #!/bin/bash
 
-
-function pmsg {
-	echo "$1"
-	local length=${#1}
-	local i=0
-	while [ $i -lt $length ]; do
-		echo -n "_"
-		i=$((i+1))
-	done
-	echo ""
-}
-
-function xend {
-	pmsg "Exiting with error: $1"
-	exit 1
-}
+source ./utils.sh
 
 function from_host_to_container {
 	if command -v tar > /dev/null; then
@@ -32,6 +17,8 @@ function from_host_to_container {
 			pmsg "Copying sites files..."
 			cp -rf ./sites /home/frappe/frappe-bench/ || xend "Couldnt copy sites files"
 		fi
+
+		cd /home/frappe/volumes
 
 		if [ -e './apps.tar' ]; then
 			cp ./apps.tar /home/frappe/extracted/
