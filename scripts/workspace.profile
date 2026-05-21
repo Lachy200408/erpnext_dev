@@ -61,7 +61,7 @@ function sync-db {
 		-v erpnext_dev_db-data:/var/lib/mysql \
 		-v $(pwd)/volumes:/db_volume \
 		ubuntu:22.04 \
-		bash -c "cd /db_volume; mkdir mysql; tar -xf /db_volume/mysql.tar -C ./mysql; chown -R 999:999 .; cp -rf ./mysql /var/lib/" 
+		bash -c "cd /db_volume; mkdir mysql; tar -xf /db_volume/mysql.tar -C ./mysql; chown -R 999:999 .; cp -rf ./mysql /var/lib/ && rm -rf ./mysql/" 
 }
 
 function wshelp {
